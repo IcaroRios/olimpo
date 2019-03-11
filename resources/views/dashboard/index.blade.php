@@ -2,7 +2,6 @@
 @section('extraPreScripts')
     <!-- DataTables CSS -->
     <link href="/assets/vendor/datatables-plugins/dataTables.bootstrap.css" rel="stylesheet">
-
     <!-- DataTables Responsive CSS -->
     <link href="/assets/vendor/datatables-responsive/dataTables.responsive.css" rel="stylesheet">
 @stop

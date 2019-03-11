@@ -11,6 +11,13 @@
 |
 */
 
-Route::get('/', function () {
-    return view('dashboard.geralVision');
+Route::group(['prefix' => 'dashboard'], function()
+{
+    Route::get('/', function () {
+        return view('dashboard.index');
+    });
+    Route::resource('users', 'UserController')->only([
+        'index', 'edit','store','edit','update','destroy'
+    ]);
 });
+

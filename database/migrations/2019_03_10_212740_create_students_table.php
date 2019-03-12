@@ -19,7 +19,7 @@ class CreateStudentsTable extends Migration
             $table->boolean('active')->default(1);
 
             $table->string('name');
-            $table->string('cpf');
+            $table->string('CPF');
             $table->timestamps();
         });
     }

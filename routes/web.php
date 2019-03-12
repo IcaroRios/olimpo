@@ -11,7 +11,15 @@
 |
 */
 
-Route::group(['prefix' => 'dashboard'], function()
+Route::get('/login', 'LoginController@loginView');
+Route::get('/', 'PublicController@indexView');
+Route::post('/login', 'LoginController@logar');
+Route::get('/logout', function() {
+    Auth::logout();
+    return redirect('/login');
+});
+
+Route::group(['prefix' => 'dashboard','middleware' => 'checkLogged'], function()
 {
     Route::get('/', function () {
         return view('dashboard.index');

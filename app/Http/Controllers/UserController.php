@@ -6,7 +6,7 @@ use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\URL;
-
+use Spatie\Activitylog\Models\Activity;
 class UserController extends Controller
 {
     /**
@@ -36,6 +36,7 @@ class UserController extends Controller
         $request['password'] = bcrypt( $request['password']);     
         try{
             User::create($request);
+            $activity = Activity::all()->last();
         } catch(\Illuminate\Database\QueryException $ex){ 
             // duplicate entry exception
             return redirect(URL::previous())->with('error','Utilize outro nome.');
@@ -72,7 +73,8 @@ class UserController extends Controller
         }
         try {
             if($user->save()){
-                return redirect(URL::previous())->with(['success' => 'ADM EditadO!']);
+                return redirect(URL::previous())->with(['success' => 'ADM Editado!']);
+                $activity = Activity::all()->last();
             }
             return redirect(URL::previous())->with(['error' => 'Não pode editar a ADM!']);
         }catch (\Illuminate\Database\QueryException $e) {
@@ -89,6 +91,7 @@ class UserController extends Controller
     public function destroy(User $user)
     {
         $user->desativate();
+        $activity = Activity::all()->last();
         return redirect(URL::previous());
     }
 }

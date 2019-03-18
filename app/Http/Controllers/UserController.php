@@ -12,12 +12,10 @@ class UserController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
      */
     public function index()
     {
         $users = User::where('active',1)->get();
-        // dd($users);
         return  view("dashboard.users.usersIndex")->with('users',$users);
     }
 

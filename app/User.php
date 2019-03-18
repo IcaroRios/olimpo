@@ -2,10 +2,10 @@
 
 namespace App;
 
-use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Spatie\Activitylog\Traits\LogsActivity;
+use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {

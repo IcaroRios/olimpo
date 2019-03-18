@@ -48,14 +48,14 @@
                 <div class="sidebar-nav navbar-collapse">
                     <ul class="nav" id="side-menu">
                         <li>
-                            <a href="/dashboard"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                            <a href="/"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                         </li>
                         <li>
                             <a href="{{route('users.index')}}"><i class="fa fa-user fa-fw"></i> ADMs</a>
                             <!-- /.nav-second-level -->
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-user fa-fw"></i> Novo Aluno</a>
+                            <a href="{{route('students.create')}} "><i class="fa fa-user fa-fw"></i> Novo Aluno</a>
                             <!-- /.nav-second-level -->
                         </li>
                         <li>

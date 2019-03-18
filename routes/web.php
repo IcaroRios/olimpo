@@ -12,20 +12,26 @@
 */
 
 Route::get('/login', 'LoginController@loginView');
-Route::get('/', 'PublicController@indexView');
 Route::post('/login', 'LoginController@logar');
 Route::get('/logout', function() {
     Auth::logout();
     return redirect('/login');
 });
 
+Route::get('/', function () {
+    return view('dashboard.index');
+});
+
 Route::group(['prefix' => 'dashboard','middleware' => 'checkLogged'], function()
 {
-    Route::get('/', function () {
-        return view('dashboard.index');
-    });
+    
     Route::resource('users', 'UserController')->only([
         'index', 'edit','store','edit','update','destroy'
     ]);
+
+    Route::resource('students', 'StudentController')->only([
+        'create','store'
+    ]);
+
 });
 

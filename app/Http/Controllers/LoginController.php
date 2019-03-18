@@ -11,7 +11,7 @@ class LoginController extends Controller
 {
     public function loginView() {
         if(Auth::check())
-            return redirect('/dashboard');    
+            return redirect('/');    
         return view("login");            
     }
 

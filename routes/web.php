@@ -18,9 +18,7 @@ Route::get('/logout', function() {
     return redirect('/login');
 });
 
-Route::get('/', function () {
-    return view('dashboard.index');
-});
+Route::get('/','IndexController@index');
 
 Route::group(['prefix' => 'dashboard','middleware' => 'checkLogged'], function()
 {
@@ -30,7 +28,7 @@ Route::group(['prefix' => 'dashboard','middleware' => 'checkLogged'], function()
     ]);
 
     Route::resource('students', 'StudentController')->only([
-        'create','store'
+        'create', 'store', 'edit', 'show'
     ]);
 
 });

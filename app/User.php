@@ -47,4 +47,8 @@ class User extends Authenticatable
         $this->active = false;
         $this->save();
     }
+
+    public function payments(){
+        return $this->hasMany('App\Payment','user_id');
+    }
 }

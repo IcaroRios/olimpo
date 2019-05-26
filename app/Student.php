@@ -13,14 +13,17 @@ class Student extends Model
         
     protected $fillable = [
         'active','name','birthDate','paymentDay','CPF','RG','cellphone','sponsorCPF','sponsorRG',
-        'sponsorCellphone','mail','street','neighborhood','CEP','city','classDays','familyHistory',
+        'mail','street','neighborhood','CEP','city','classDays','familyHistory',
         'medicine','medicineName','frequency','paymentAmount'
     ];
 
     protected static $logAttributes = [
         'active','name','birthDate','paymentDay','CPF','RG','cellphone','sponsorCPF','sponsorRG',
-        'sponsorCellphone','mail','street','neighborhood','CEP','city','classDays','familyHistory',
+        'mail','street','neighborhood','CEP','city','classDays','familyHistory',
         'medicine','medicineName','frequency','paymentAmount'
     ];
-
+    
+    public function payments(){
+        return $this->hasMany('App\Payment','student_id');
+    }
 }

@@ -34,8 +34,7 @@ class StudentController extends Controller
             Student::create($request);
             $activity = Activity::all()->last();
         } catch(\Illuminate\Database\QueryException $ex){ 
-            // duplicate entry exception
-            return redirect(URL::previous())->with('error','Erro Inesperado.');
+           return redirect(URL::previous())->with('error','Erro Inesperado.');
         }
         return redirect(URL::previous())->with('success','salvo com sucesso');
     }
@@ -48,7 +47,7 @@ class StudentController extends Controller
      */
     public function show(Student $student)
     {
-        //
+        return view('dashboard.student.studentShow',compact('student'));
     }
 
     /**

@@ -49,16 +49,16 @@
                                             </div>
                                             <div class=" form-group col-lg-12">                                
                                                 <div class="col-lg-3 " >                                                                        
-                                                    <input autocomplete="anyrandomstring" class="form-control" name="sponsorCPF" placeholder="Telefone do responsável" required>
+                                                    <input autocomplete="anyrandomstring" class="form-control" name="sponsorCPF" placeholder="Telefone" required>
                                                 </div>
                                                 <div class="col-lg-3 " >                                                                        
-                                                    <input class="form-control" name="sponsorCPF" placeholder="CPF do responsável " required>
+                                                    <input class="form-control" name="sponsorCPF" placeholder="CPF do responsável ">
                                                 </div>  
                                                 <div class="col-lg-3" >  
-                                                    <input class="form-control" name="sponsorRG" placeholder="RG do responsável " required>
+                                                    <input class="form-control" name="sponsorRG" placeholder="RG do responsável ">
                                                 </div>
                                                 <div class="col-lg-3 " >                                                                        
-                                                    <input autocomplete="anyrandomstring" class="form-control" name="mail" placeholder="Email do responsável" required>
+                                                    <input autocomplete="anyrandomstring" class="form-control" name="mail" placeholder="Email">
                                                 </div>
                                             </div>
                                         </div> 
@@ -97,14 +97,14 @@
                                         <div class="row">     
                                             <div class=" form-group col-lg-12"> 
                                                 <div class="col-lg-6">                                                                                                               
-                                                    <input autocomplete="anyrandomstring" class="form-control" name="familyHistory" placeholder="Histórico Familiar" required>
+                                                    <input autocomplete="anyrandomstring" class="form-control" name="familyHistory" placeholder="Histórico Familiar">
                                                 </div>                                 
                                                 <div class="form-group col-lg-2" style="margin-top:5px">      
                                                     <label> Medicamento?:   </label>                                       
                                                         <input type="checkbox" name="medicine" >
                                                 </div>
                                                 <div class="col-lg-4">                                                                                                               
-                                                    <input autocomplete="anyrandomstring" class="form-control" name="medicineName" placeholder="Nome do medicamento" required>
+                                                    <input autocomplete="anyrandomstring" class="form-control" name="medicineName" placeholder="Nome do medicamento">
                                                 </div>  
                                             </div>          
                                         </div>              
@@ -117,13 +117,10 @@
                                     </div>
                                     <div class="panel-body">
                                         <div class="row">     
-                                            <div class=" form-group col-lg-12"> 
-                                                <div class="col-lg-6" style="margin-top:20px">                                                                                                         
-                                                    <input autocomplete="anyrandomstring" class="form-control" name="classDays" placeholder="Dias das Aulas" required>
-                                                </div>                                 
+                                            <div class=" form-group col-lg-12">                          
                                                 <div class="form-group col-lg-6">      
                                                     Frequência:                                          
-                                                    <select name="operadoraPrincipal1" class="form-control">
+                                                    <select name="frequency" class="form-control">
                                                         <option value="all">Frequente</option>
                                                         <option value="2Times">2X por semana</option>
                                                         <option value="3Times">3X por semana</option>
@@ -146,7 +143,7 @@
                                                 </div> 
                                                 <div class="col-lg-3">
                                                     <label>dia de pagamento</label>
-                                                    <input class="form-control" name="paymentDay" type="number" max="01" max="30" required>
+                                                    <input class="form-control" name="paymentDay" type="number" min="01" max="30" required>
                                                 </div>                          
                                             </div>          
                                         </div>              

@@ -18,6 +18,8 @@ class CreatePaymentsTable extends Migration
             $table->increments('id');
 
             $table->unsignedInteger('user_id');
+            $table->unsignedInteger('student_id');
+            
             $table->string('comment')->default('');
             $table->decimal('amount', 5, 2);
 
@@ -26,6 +28,7 @@ class CreatePaymentsTable extends Migration
 
         Schema::table('payments', function($table){
             $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('student_id')->references('id')->on('students');
         });
     }
 

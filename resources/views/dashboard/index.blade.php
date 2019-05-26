@@ -23,7 +23,7 @@
                                 <i class="fa fa-users fa-5x"></i>
                             </div>
                             <div class="col-xs-9 text-right">
-                                <div class="huge">26</div>
+                                <div class="huge">{{$numberActiveStudents}}</div>
                                 <div>Alunos Ativos!</div>
                             </div>
                         </div>
@@ -46,7 +46,7 @@
                             </div>
                             <div class="col-xs-9 text-right">
                                 <div class="huge">12</div>
-                                <div>Pagementos Recebidos</div>
+                                <div>Pag. Recebidos</div>
                             </div>
                         </div>
                     </div>
@@ -67,7 +67,7 @@
                                 <i class="fa fa-user fa-5x"></i>
                             </div>
                             <div class="col-xs-9 text-right">
-                                <div class="huge">124</div>
+                                <div class="huge">{{$numberNewStudents}}</div>
                                 <div>Alunos Novos Hoje!</div>
                             </div>
                         </div>
@@ -116,14 +116,24 @@
                             <thead>
                                 <tr>
                                     <th>Aluno</th>
+                                    <th>Ativo</th>
                                     <th></th>
                                 </tr>
                             </thead>
-                            <tbody>  
-                                <tr class="gradeA">
-                                    <td>nome de uma pessoa</td>
-                                    <td></td>
-                                </tr>
+                            <tbody> 
+                                @foreach($students as $student) 
+                                    <tr class="gradeA">
+                                        <td>
+                                            <a href="{{route('students.show',$student)}}">
+                                                {{$student->name}}
+                                            </a>
+                                        </td>
+                                        <td>    
+                                            {{$student->active ? 'ativo' : 'desativado' }} 
+                                        </td>
+                                        <td></td>
+                                    </tr>
+                                    @endforeach
                             </tbody>
                         </table>
                     </div>

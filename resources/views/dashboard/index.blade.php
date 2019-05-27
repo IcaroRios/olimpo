@@ -131,7 +131,11 @@
                                         <td>    
                                             {{$student->active ? 'ativo' : 'desativado' }} 
                                         </td>
-                                        <td></td>
+                                        <td>
+                                            <a href="{{ route('students.edit', $student) }}" 
+                                                class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i>
+                                            </a>  
+                                        </td>
                                     </tr>
                                     @endforeach
                             </tbody>

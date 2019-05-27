@@ -28,7 +28,7 @@ Route::group(['prefix' => 'dashboard','middleware' => 'checkLogged'], function()
     ]);
 
     Route::resource('students', 'StudentController')->only([
-        'create', 'store', 'edit', 'show'
+        'create', 'store', 'show', 'edit', 'update'
     ]);
 
 });

@@ -58,7 +58,7 @@ class StudentController extends Controller
      */
     public function edit(Student $student)
     {
-        //
+        return view('dashboard.student.studentEdit',compact('student'));
     }
 
     /**
@@ -70,7 +70,31 @@ class StudentController extends Controller
      */
     public function update(Request $request, Student $student)
     {
-        //
+        $request->validate([
+            'name'=>'required',
+            'CPF'=> 'required',
+            'RG'=> 'required',
+            'birthDate'=> 'required',
+            'cellphone'=> 'required',
+            'city'=> 'required',
+            'street'=> 'required',
+            'neighborhood'=> 'required',
+            'CEP'=> 'required',
+            'paymentAmount'=> 'required',
+            'paymentDay'=> 'required'
+        ]);
+        $request = $request->all();
+        $request['medicine'] =             (!isset( $request['medicine']) ) ? 0 : 1;
+        $student->update($request);
+        try {
+            if($student->update($request)){
+                return redirect(URL::previous())->with(['success' => 'Aluno Editado!']);
+                $activity = Activity::all()->last();
+            }
+            return redirect(URL::previous())->with(['error' => 'Não pode editar o Aluno!']);
+        }catch (\Illuminate\Database\QueryException $e) {
+            return redirect(URL::previous())->with(['error' => 'Erro grave']);
+        }
     }
 
     /**
